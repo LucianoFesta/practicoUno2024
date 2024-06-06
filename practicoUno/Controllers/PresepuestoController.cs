@@ -47,7 +47,7 @@ public class PresupuestoController : Controller
             ImportePresupuesto = e.ImportePresupuesto,
             NombreEstado = e.Estado.ToString(),
             EstadoInt = (Estado)e.Estado
-        }).ToList();
+        }).OrderByDescending(e => e.FechaFin).ToList();
 
         if(IdPresupuesto.HasValue){
             listaPresupuestos = listaPresupuestos.Where(e => e.PresupuestoID == IdPresupuesto).ToList();
